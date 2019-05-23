@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title></title>
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+</head>
+<body>
+	<div class="rows dulieu">
+		<div class="rows">
+			<div class="col-md-12"> 
+				<p><b>&nbsp;&nbsp;&nbsp;&nbsp;HỌC VIỆN AN NINH NHÂN DÂN&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;	  	CỘNG HÒA XÃ HỘI CHỦ NGHĨA VIỆT NAM</b></p>
+			</div>
+		</div>
+		<div class="rows">
+			<div class="col-md-12"> 
+				<p><b>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<u>PHÒNG KHẢO THÍ & ĐBCLĐT</u>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<u>Độc lập – Tự do – Hạnh phúc</u></b></p>
+			</div>
+		</div>
+		<div class="rows">
+			<div class="col-md-12">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 
+			<i>Hà nội, ngày 30 tháng 10 năm 2018</i>
+			</div>
+		</div>
+		<div class="row">
+			<div class="col-md-6" style="text-align: center;">
+				<b>THỐNG KÊ CHẤM THI KẾT THÚC HỌC PHẦN(LẦN 1)</b>
+				<br>
+				<p>Năm học: 2017 – 2018</p>
+			</div>
+		</div>
+		<div class="row">
+			<div class="col-md-6">
+				<table id="example" class="display" style="width:100%">
+					<tr>
+		                <th rowspan="2">TT</th>
+		                <th rowspan="2">Lớp</th>
+		                <th rowspan="2">Quân số</th>
+		                <th rowspan="2">Ngày thi</th>
+		                <th rowspan="2">Môn thi</th>
+		                <th rowspan="2">Hình thức thi</th>
+		                <th colspan="3" style="text-align: center;">Contact</th>
+		                <th rowspan="2">Ghi chú</th>
+		            </tr>
+		            <tr>
+		                <th>Họ và tên</th>
+		                <th>Đơn vị</th>
+		                <th>Cấp hàm</th>
+		            </tr>
+				</table>
+			</div>
+		</div>
+		<div class="rows">
+			<div class="col-md-6">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+			<b>TRƯỞNG PHÒNG</b>
+			&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;	
+			<b>CÁN BỘ THỐNG KÊ</b>
+			</div>
+		</div>
+	</div>
+	
+	
+	<button class="fa fa-print" onclick="PrintElem()">print</button>
+</body>
+<script type="text/javascript">
+	$(document).ready(function() {
+	    $('#example').DataTable({
+	    	"ajax": {
+            "type": "GET",
+            "url": "/adminkt/quan_ly_ki_thi_data",
+            "contentType": "application/json; charset=utf-8",
+            "data": function(result){
+                return JSON.stringify(result);
+            },
+        },
+        
+        "displayLength": 10,
+	    });
+	    
+	});
+	function PrintElem(){
+	    $("body").first().html($(".dulieu").html());
+	    window.print();
+	    location.reload();
+	    return true;
+	}
+</script>
+</html>
